@@ -60,9 +60,7 @@ class ViewController: UIViewController {
         
         do{
             
-            self.managedObjList = try
-                
-            self.manageContext.fetch(fetchReq)
+            self.managedObjList = try self.manageContext.fetch(fetchReq)
             self.tableInfo.reloadData()
 
             
@@ -103,6 +101,10 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = Int16("\(managedObjList[indexPath.row].value(forKey: "id")!)")
+        
+        
+    }
 }
 
